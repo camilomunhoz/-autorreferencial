@@ -1,0 +1,227 @@
+:root {
+    --light: rgba(255, 255, 255, 0.1);
+    --dark: rgb(78, 9, 9);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Hanken Grotesk';
+}
+html, body {
+    height: 100%;
+}
+body {
+    cursor: none;
+    background: var(--dark);
+    color: white;
+    overflow: hidden;
+}
+#content {
+    padding: 2em;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-30px);
+    transition: opacity 1s ease, transform 1.5s ease;
+    opacity: 0;
+}
+.boxes {
+    font-size: 32px;
+    margin-bottom: 1em;
+    border-spacing: 20px;
+    transition: opacity 2s ease-out;
+}
+.boxes td {
+    text-align: center;
+    vertical-align: middle;
+}
+.box {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: #FFF1;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.05);;
+    border: 1px solid var(--light);
+
+    transition: background .2s ease;
+    animation-name: heartbeat;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+.box:hover .icon {
+    transform: translateY(-5px);
+}
+.actions {
+    margin-bottom: 1em;
+    display: none;
+}
+.btn {
+    transition: background .2s ease, border .2s ease;
+    padding: .8em 1em;
+    /* cursor: pointer; */
+    font-weight: 600;
+    width: fit-content;
+    display: inline-block;
+    user-select: none;
+}
+.btn-primary {
+    background: white;
+    color: var(--dark);
+}
+.btn-primary:hover {
+    background: var(--light);
+    color: white;
+    border: 1px solid var(--light);
+}
+.btn-bordered {
+    padding: calc(.8em - 1px) calc(1em - 1px);
+    border: 1px solid var(--light);
+    color: white;
+
+    background: #FFF1;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.05);;
+    border: 1px solid var(--light);
+}
+.btn-bordered:hover {
+    border-color: transparent;
+    background: var(--light);
+}
+.chosen {
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.6px;
+    height: 1em;
+    margin-bottom: 1em;
+}
+.box .icon {
+    font-size: 0.5em;
+    transition: transform .2s ease;
+}
+.box.active {
+    background-color: var(--light) !important;
+}
+.vignette {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(circle, transparent 40%, #0007 80%);
+    /* background: radial-gradient(circle,
+        transparent 40%,
+        rgba(0, 0, 0, 0.05) 40%,
+        rgba(0, 0, 0, 0.10) 50%,
+        rgba(0, 0, 0, 0.15) 50%,
+        rgba(0, 0, 0, 0.20) 60%,
+        rgba(0, 0, 0, 0.25) 60%,
+        rgba(0, 0, 0, 0.30) 70%,
+        rgba(0, 0, 0, 0.30) 70%
+    ); */
+    animation-name: heartbeat2;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+.mobile {
+    display: none;
+    text-align: center;
+}
+@media screen and (max-width: 767px), (max-height: 770px) {
+    #content *:not(.mobile) {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+}
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    12% { transform: scale(1.03); }
+    24% { transform: scale(1); }
+    36% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+@keyframes heartbeat2 {
+    0% { transform: scale(1); }
+    12% { transform: scale(1.1); }
+    24% { transform: scale(1); }
+    36% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+@keyframes heartbeat3 {
+    0% { transform: scale(1); }
+    12% { transform: scale(1.4); }
+    24% { transform: scale(1); }
+    36% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+.cursor {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    position: absolute;
+    display: none;
+}
+.cursor-light {
+    background-color: white;
+}
+.cursor-dark {
+    background-color: var(--dark);
+}
+.btn--f11 {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+}
+.btn--about {
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+    animation-name: heartbeat3;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+.btn--f11, .btn--about, .btn--actions {
+    font-size: 1.5em;
+    opacity: .5;
+}
+.btn--f11:hover, .btn--about:hover, .btn--actions:hover {
+    opacity: 1;
+}
+#about {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    padding: 2em;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background: rgb(253, 246, 227);
+    color: var(--dark);
+}
+#about .x {
+    font-size: 1.5em;
+    position: fixed;
+    top: 1em;
+    right: 1em;
+}
+#about .wrapper {
+    max-width: 900px;
+    /* border: solid; */
+}
+#about .wrapper .concept {
+    text-align: justify;
+}
+#about .wrapper .author {
+    text-align: right;
+}
