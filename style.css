@@ -32,7 +32,7 @@ body {
 }
 .boxes {
     font-size: 32px;
-    margin-bottom: 1em;
+    /* margin-bottom: 0.5em; */
     border-spacing: 20px;
     transition: opacity 2s ease-out;
 }
@@ -135,12 +135,15 @@ body {
     display: none;
     text-align: center;
 }
-@media screen and (max-width: 767px), (max-height: 770px) {
+@media screen and (max-width: 650px), (max-height: 620px) {
     #content *:not(.mobile) {
-        display: none;
+        /* display: none; */
+        visibility: hidden;
+        position: absolute;
     }
     .mobile {
         display: block;
+        visibility: visible;
     }
 }
 @keyframes heartbeat {
