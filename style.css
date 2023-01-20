@@ -135,38 +135,6 @@ body {
     display: none;
     text-align: center;
 }
-@media screen and (max-width: 650px), (max-height: 620px) {
-    #content *:not(.mobile) {
-        /* display: none; */
-        visibility: hidden;
-        position: absolute;
-    }
-    .mobile {
-        display: block;
-        visibility: visible;
-    }
-}
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    12% { transform: scale(1.03); }
-    24% { transform: scale(1); }
-    36% { transform: scale(1.03); }
-    100% { transform: scale(1); }
-}
-@keyframes heartbeat2 {
-    0% { transform: scale(1); }
-    12% { transform: scale(1.1); }
-    24% { transform: scale(1); }
-    36% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-@keyframes heartbeat3 {
-    0% { transform: scale(1); }
-    12% { transform: scale(1.4); }
-    24% { transform: scale(1); }
-    36% { transform: scale(1.4); }
-    100% { transform: scale(1); }
-}
 .cursor {
     width: 7px;
     height: 7px;
@@ -205,12 +173,10 @@ body {
     top: 0; left: 0; right: 0; bottom: 0;
     padding: 2em;
     display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     z-index: 2;
     background: rgb(253, 246, 227);
     color: var(--dark);
+    overflow-x: auto;
 }
 #about .x {
     font-size: 1.5em;
@@ -221,10 +187,63 @@ body {
 #about .wrapper {
     max-width: 900px;
     /* border: solid; */
+    margin: 0 auto;
 }
 #about .wrapper .concept {
     text-align: justify;
 }
 #about .wrapper .author {
     text-align: right;
+}
+#about.about-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ------------------------------ MEDIA QUERIES ----------------------------- */
+
+@media screen and (max-width: 650px), (max-height: 620px) {
+    #content *:not(.mobile) {
+        /* display: none; */
+        visibility: hidden;
+        position: absolute;
+    }
+    .mobile {
+        display: block;
+        visibility: visible;
+    }
+}
+@media screen and (max-width: 720px), (max-height: 650px) {
+    #about.about-display {
+        display: block;
+    }
+    #about .wrapper, #about .wrapper .concept {
+        padding-top: 2em;
+    }
+}
+
+/* -------------------------- KEYFRAMES ANIMATIONS -------------------------- */
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    12% { transform: scale(1.03); }
+    24% { transform: scale(1); }
+    36% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+@keyframes heartbeat2 {
+    0% { transform: scale(1); }
+    12% { transform: scale(1.1); }
+    24% { transform: scale(1); }
+    36% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+@keyframes heartbeat3 {
+    0% { transform: scale(1); }
+    12% { transform: scale(1.4); }
+    24% { transform: scale(1); }
+    36% { transform: scale(1.4); }
+    100% { transform: scale(1); }
 }

@@ -132,7 +132,7 @@ $(function() {
     $('.btn--f11').on('click', toggleFullScreen)
 
     $('.btn--about').on('click', function() {
-        $('#about').fadeIn(200).css('display', 'flex');
+        $('#about').fadeIn(200).removeAttr('style').addClass('about-display');
         $('body').css('cursor', 'default');
         $(this).css('animation', 'none');
     });
